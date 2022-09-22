@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Todo App</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+  </style>
+</head>
+<body>
+  <div class="todoApp">
+    <div class="topNav">TODO App
+    </div>
+    <div class="main">
+      <div class="menu">
+        <div class="todoHeaderWrapper">
+          <h3 class="todoHeader">Todo</h3>
+          <button class="todoAddBtn">
+            <img src="./images/86613f3df6fe758f230fea0902d9c15c.svg" alt="Add Icon" height='30' width='30'>
+          </button>
+        </div>
+        <ul>
+          <li class='allLi'>All</li>
+          <li class='todayLi'>Today</li>
+          <li class='weekLi'>This week</li>
+        </ul>
+
+        <div class="projectsHeaderWrapper">
+          <h3 class="projectsHeader">Projects</h3>
+          <button class="projectsAddBtn">
+            <img src="./images/86613f3df6fe758f230fea0902d9c15c.svg" alt="Add Icon" height='30' width='30'>
+          </button>
+        </div>
+        <ul class="projectsUl"></ul>
+      </div>
+      <div class="mainWindow">
+        <div class="todoDisplay"></div>
+        <!-- Show only for debugging
+        <button class="clearProjects">Clear projects</button><br><br><br>
+        <button class="clearTodos">Clear todos</button><br><br><br>
+        <button class="clearAll">Clear ALL</button> -->
+        <div class="createModal">
+          <form class="createModalContent" method='dialog'>
+              <h4 class='createTopTitle'>Create todo</h4>
+              <div onclick="document.querySelector('.createModal').style.display = 'none'" class="closeButton">&times;</div>
+            <input type="text" class="modalTitle" placeholder='Title: Clean the house' required>
+            <textarea name="description" 
+              id="description" 
+              cols="30" 
+              rows="10" 
+              class="modalDescription" 
+              placeholder='Description: Sweep, mop, dust'
+              style="resize: none;" 
+              required>
+            </textarea>
+            <label class='dueDateLabel' for="dueDate">Due Date:</label>
+            <input type="date" class="modalDate" id='dueDate' required>
+            <label class='priorityLabel' for="priority">Priority:</label>
+            <div class="priorityBtns">
+              <input id="low" type="radio" name="radioGroup">
+              <label for="low">Low</label>
+              <input id="med" type="radio" name="radioGroup">
+              <label for="med">Medium</label>
+              <input id="high" type="radio" name="radioGroup">
+              <label for="high">High</label>
+            </div>
+            <button class="modalSaveBtn">Create</button>
+          </form>
+        </div>
+
+        <div class="detailsModal">
+          <form class="detailsModalContent" method='dialog'>
+              <h4 class='detailsTopTitle'>Details / Edit</h4>
+              <div onclick="document.querySelector('.detailsModal').style.display = 'none'" class="closeButton">&times;</div>
+            <input type="text" class="detailsTitle" placeholder='Title: Clean the house' required>
+            <textarea name="description" 
+              id="description" 
+              cols="30" 
+              rows="10" 
+              class="detailsDescription" 
+              placeholder='Description: Sweep, mop, dust'
+              style="resize: none;" 
+              required></textarea>
+            <label class='dueDateLabel'for="detailsDate">Due Date:</label>
+            <input type="date" class="detailsDate" id='detailsDueDate' required>
+            <label class='priorityLabel' for="priority">Priority:</label>
+            <div class="detailsPriorityBtns">
+              <input id="detailsLow" type="radio" name="detailsRadioGroup">
+              <label for="detailsLow">Low</label>
+              <input id="detailsMed" type="radio" name="detailsRadioGroup">
+              <label for="detailsMed">Medium</label>
+              <input id="detailsHigh" type="radio" name="detailsRadioGroup">
+              <label for="detailsHigh">High</label>
+            </div>
+            <button class="modalUpdateBtn">Save</button>
+          </form>
+        </div>
+
+        <div class="projectsModal">
+          <form class="projectsModalContent" method='dialog'>
+            <h4 class='projectsTopTitle'>Create project</h4>
+            <div onclick="document.querySelector('.projectsModal').style.display = 'none'" class="closeButton">&times;</div>
+            <input type="text" class="projectsTitle" placeholder='Project: Renovate the house' required>
+            <button class="projectsSave">Create</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type='module' src="home.js"></script>
+</body>
+</html>
